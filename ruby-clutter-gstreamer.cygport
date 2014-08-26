@@ -1,11 +1,16 @@
 inherit rubygem
 
 NAME="ruby-clutter-gstreamer"
-VERSION=2.0.2
+VERSION=2.2.0
 RELEASE=1
 CATEGORY="Ruby"
 SUMMARY="Ruby Clutter-GStreamer bindings"
 DESCRIPTION="Ruby/ClutterGStreamer is a Ruby binding of Clutter-GStreamer."
 HOMEPAGE="http://ruby-gnome2.sourceforge.jp/"
 
-REQUIRES="girepository-ClutterGst2.0"
+ARCH=noarch
+
+PKG_NAMES="${NAME} ${NAME}-doc"
+ruby_clutter_gstreamer_REQUIRES="girepository-ClutterGst2.0"
+ruby_clutter_gstreamer_CONTENTS="--exclude=sample ${RUBYGEM_INSTDIR#/} ${RUBYGEM_SPEC#/}"
+ruby_clutter_gstreamer_doc_CONTENTS="${RUBYGEM_DOCDIR#/} ${RUBYGEM_INSTDIR#/}/sample/"
